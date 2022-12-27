@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css" />
     <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-brands/css/uicons-brands.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.0/css/lightgallery-bundle.css" />
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css" />
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
 
     <title>Mezuu's Commission</title>
   </head>
@@ -21,8 +24,8 @@
           <span class="text-lg italic font-semibold">Commission</span>
         </div>
       </div>
-      <div class="flex">
-        <div class="basis-4/6 mr-4">
+      <div class="lg:flex mb:flex">
+        <div class="basis-4/6 mr-0 md:mr-4 lg:mr-4">
           <div class="bg-slate-800 rounded-lg mt-5 p-5">
             <div>
               <p>
@@ -34,20 +37,30 @@
 
           <div class="bg-slate-800 rounded-lg mt-5 p-5">
             <div class="font-bold mb-1"><i class="fi fi-sr-picture align-middle mr-1"></i> Gallery</div>
-            <div class="p-5">
-              <div class="gap-2 columns-2 md:columns-3 lg:columns-4" id="lightgallery">
-                <img class="mb-2" src="img/94.webp" />
-                <img class="mb-2" src="img/93.webp" />
-                <img class="mb-2" src="img/81.webp" />
-                <img class="mb-2" src="img/79.webp" />
-                <img class="mb-2" src="img/73.webp" />
-                <img class="mb-2" src="img/71.webp" />
-                <img class="mb-2" src="img/56.webp" />
-                <img class="mb-2" src="img/52.webp" />
-                <img class="mb-2" src="img/49.webp" />
-                <img class="mb-2" src="img/47.webp" />
-                <img class="mb-2" src="img/45.webp" />
-                <img class="mb-2" src="img/42.webp" />
+            <div class="p-5 relative">
+              <div class="gap-2 columns-2 max-h-screen md:max-h-max lg:max-h-max md:columns-3 lg:columns-4 overflow-clip transition-transform ease-in" id="lightgallery">
+                <img role="button" class="mb-2" src="img/94.webp" />
+                <img role="button" class="mb-2" src="img/93.webp" />
+                <img role="button" class="mb-2" src="img/81.webp" />
+                <img role="button" class="mb-2" src="img/79.webp" />
+                <img role="button" class="mb-2" src="img/73.webp" />
+                <img role="button" class="mb-2" src="img/71.webp" />
+                <img role="button" class="mb-2" src="img/56.webp" />
+                <img role="button" class="mb-2" src="img/54.webp" />
+                <img role="button" class="mb-2" src="img/52.webp" />
+                <img role="button" class="mb-2" src="img/49.webp" />
+                <img role="button" class="mb-2" src="img/47.webp" />
+                <img role="button" class="mb-2" src="img/45.webp" />
+                <img role="button" class="mb-2" src="img/42.webp" />
+              </div>
+              <div id="gradient" class="absolute bottom-0 w-full h-96 bg-gradient-to-t from-slate-800 md:hidden lg:hidden"></div>
+            </div>
+            <div id="expand" class="md:hidden lg:hidden w-full">
+              <hr class="border-gray-500" />
+              <div class="mx-auto w-max mt-2">
+                <p class="text-gray-500 hover:text-inherit transition-colors ease-in" role="button" onclick="expandGallery()">
+                  Expand Gallery<i class="fi fi-rs-angle-small-down align-middle ml-1"></i>
+                </p>
               </div>
             </div>
           </div>
@@ -276,6 +289,11 @@
       };
       let closeModal = function (x) {
         document.getElementById(x).classList.add("hidden");
+      };
+      let expandGallery = function () {
+        document.getElementById("expand").classList.add("hidden");
+        document.getElementById("gradient").classList.add("hidden");
+        document.getElementById("lightgallery").classList.remove("max-h-screen");
       };
     </script>
 
