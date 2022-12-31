@@ -335,7 +335,15 @@
         d5.appendChild(d6);
         let d7 = document.createElement("div");
         let s2 = document.createElement("small");
-        s2.innerHTML = `Current Step : <strong>${jsonObject[i]["step"]}</strong>`;
+        s3 = "";
+        ["Sketch", "Lining", "Coloring", "Finished"].forEach((e) => {
+          if (e == jsonObject[i]["step"]) {
+            s3 += `<strong class="text-gray-300">${e}&nbsp;&nbsp;</strong>`;
+          } else {
+            s3 += `<span class="text-slate-500">${e}&nbsp;&nbsp;</span>`;
+          }
+        });
+        s2.innerHTML = `Current Step : ${s3}`;
         d7.appendChild(s2);
         d3.appendChild(d4);
         d3.appendChild(d5);
